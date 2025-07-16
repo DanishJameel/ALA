@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import sanityClient from '../sanity'
 import { Button } from '@/components/ui/button'
 import { Calendar, MessageCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([])
@@ -61,9 +62,9 @@ const Blog = () => {
 
                 {/* Post Title */}
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                  <a href={`/blog/${post.slug.current}`} className="hover:underline">
+                  <Link to={`/blog/${post.slug.current}`} className="hover:underline">
                     {post.title}
-                  </a>
+                  </Link>
                 </h3>
 
                 {/* Post Meta */}
@@ -86,7 +87,7 @@ const Blog = () => {
                 {/* Post Footer */}
                 <div className="flex items-center justify-between">
                   <Button variant="link" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-medium">
-                    <a href={`/blog/${post.slug.current}`}>Read More →</a>
+                    <Link to={`/blog/${post.slug.current}`}>Read More →</Link>
                   </Button>
                   {/* Comments count can be added if available in Sanity */}
                 </div>
